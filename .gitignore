@@ -1,0 +1,55 @@
+# ========================
+# 1. Python & Tizim fayllari
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+.DS_Store
+
+# ========================
+# 2. Virtual Muhit (Venv)
+# ========================
+# Bularni yuklamaslik kerak, har kim o'zida o'rnatadi
+venv/
+env/
+.venv/
+don/
+
+# ========================
+# 3. SIRLI FAYLLAR (Himoya)
+# ========================
+# O'qitish kodi (Oshxona siri)
+train.py
+check.py
+dai_moe_final.pth
+
+# Dataset (Viruslarni GitHubga yuklash taqiqlangan!)
+dataset_final/
+malware_dataset/
+dataset/
+
+# ========================
+# 4. XAVFLI FAYL TURLARI (Safety Net)
+# ========================
+# Agar datasetdan tashqarida qolib ketgan virus bo'lsa ham, git ko'rmasligi uchun:
+*.exe
+*.dll
+*.so
+*.apk
+*.dex
+*.class
+*.tmp
+
+# ========================
+# 5. IDE Sozlamalari
+# ========================
+.vscode/
+.idea/
+
+# ========================
+# 6. MODEL (Istisno)
+# ========================
+# Biz *.pth fayllarni ruxsat beramiz, chunki modelni yuklashimiz kerak.
+# Agar kelajakda checkpointlar ko'payib ketsa, ularni cheklash mumkin:
+# checkpoints/
