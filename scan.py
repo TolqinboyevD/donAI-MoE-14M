@@ -16,7 +16,6 @@ class Colors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
 
-# MUHIM O'ZGARISH: train.py dan emas, model_core.py dan olamiz!
 try:
     from model_core import DAISentinel, DAIConfig
 except ImportError:
@@ -26,7 +25,6 @@ except ImportError:
 
 def print_banner():
     print(f"{Colors.CYAN}{Colors.BOLD}")
-    # Yangi "donAI" ASCII Art
     print(r"""
      _              _    ___ 
   __| | ___  _ __  / \  |_ _|
@@ -51,9 +49,7 @@ def scan_file(file_path, model_path="dai_moe_100.pth"):
     model = DAISentinel(config)
     
     # 2. Modelni yuklash
-    # Agar model models/ papkasida bo'lsa, yo'lni tekshiramiz
     if not os.path.exists(model_path):
-        # Ehtimol model 'models' papkasidadir?
         if os.path.exists(os.path.join("models", model_path)):
             model_path = os.path.join("models", model_path)
         else:
