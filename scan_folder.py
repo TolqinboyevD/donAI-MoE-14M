@@ -4,7 +4,7 @@ import time
 import argparse
 import torch
 import torch.nn.functional as F
-from tqdm import tqdm # Progress bar
+from tqdm import tqdm
 
 # Ranglar
 class Colors:
@@ -17,7 +17,6 @@ class Colors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
 
-# MUHIM: train.py dan emas, model_core.py dan olamiz (GitHub uchun)
 try:
     from model_core import DAISentinel, DAIConfig
 except ImportError:
@@ -49,7 +48,6 @@ def scan_directory(folder_path, model_path="dai_moe_100.pth"):
     config = DAIConfig()
     model = DAISentinel(config)
     
-    # Model yo'lini tekshirish (papkani ichida yoki models/ ichida)
     if not os.path.exists(model_path):
         if os.path.exists(os.path.join("models", model_path)):
             model_path = os.path.join("models", model_path)
@@ -122,7 +120,7 @@ def scan_directory(folder_path, model_path="dai_moe_100.pth"):
                 print(f"\n{Colors.WARNING}⚠️  Jarayon foydalanuvchi tomonidan to'xtatildi!{Colors.ENDC}")
                 break
             except Exception:
-                # O'qib bo'lmaydigan fayllar (masalan, system files) tashlab ketiladi
+                # O'qib bo'lmaydigan fayllar tashlab ketiladi
                 pass 
 
     except KeyboardInterrupt:
@@ -141,7 +139,7 @@ def scan_directory(folder_path, model_path="dai_moe_100.pth"):
         print("-" * 50)
         print(f"{Colors.FAIL}{Colors.BOLD}🚨 TOPILGAN XAVFLAR:{Colors.ENDC}")
         
-        # Ro'yxatni chiroyli chiqarish (maksimum 20 tasini ko'rsatish)
+        # Ro'yxatni chiroyli chiqarish
         for i, (fpath, score) in enumerate(infected_files):
             if i >= 20:
                 print(f"   ... va yana {len(infected_files) - 20} ta fayl.")
